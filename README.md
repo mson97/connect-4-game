@@ -1,2 +1,1 @@
-# draw-paint
-# draw-paint
+# connect-4-game
