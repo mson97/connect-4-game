@@ -8,8 +8,8 @@
 
   bool isGameOver(char **board, const int numRows, const int numCols, const char blankSpace, const int piecesToWin,
                   int rowPlayed, int colPlayed, const int playerTurn);
-  bool win(char** board, const int numRows, const int numCols, const char blankSpace, const int piecesToWin,
-         int rowPlayed, int colPlayed, const int playerTurn);
+  bool isWin(char **board, const int numRows, const int numCols, const char blankSpace, const int piecesToWin,
+                int rowPlayed, int colPlayed, const int playerTurn);
   bool horizWin(char **board, const int numCols, const char blankSpace, const int piecesToWin, const int playerTurn,
               int rowPlayed);
   bool vertWin(char **board, const int numRows, const char blankSpace, const int piecesToWin, const int playerTurn,
@@ -20,7 +20,7 @@
                  const int playerTurn);
   bool rightDiagWin(char **board, const int numRows, const int numCols, const char blankSpace, const int piecesToWin,
                   const int playerTurn);
-  bool tie(char** board, const int numRows, const int numCols, const char blankSpace, const int piecesToWin,
+  bool isTie(char** board, const int numRows, const int numCols, const char blankSpace, const int piecesToWin,
          int rowPlayed, int colPlayed, const int playerTurn);
   bool isBoardFull(char **board, const int numRows, const int numCols, const int blankSpace);
   void declareWinnerOrTie(const int playerTurn, char **board, const int numRows, const int numCols,

@@ -17,11 +17,11 @@ void getMove(char **board, const int numRows, const int numCols, const char blan
 
 bool isValidMove(const int numArgsRead, const int numArgsNeeded, char **board, const int numRows,
                  const int numCols, int colPlayed, const char blankSpace) {
-  if (!isValidFormat(numArgsRead, numArgsNeeded)) { // has to be one argument entered
+  if (!isValidFormat(numArgsRead, numArgsNeeded)) {
     return false;
-  } else if (!isInBounds(colPlayed, 0, numCols - 1)) { // must be b/w 0 and max dimensions
+  } else if (!isInBounds(colPlayed, 0, numCols - 1)) {
     return false;
-  } else if (board[0][colPlayed] != blankSpace) { // must be blank space at at least top row
+  } else if (board[0][colPlayed] != blankSpace) { // top row must be avail
     return false;
   } else {
     return true;
@@ -30,15 +30,15 @@ bool isValidMove(const int numArgsRead, const int numArgsNeeded, char **board, c
 
 void makeMove(char **board, const int numRows, const int numCols, const int colPlayed, const char blankSpace,
               int playerTurn, int *rowPlayed) {
-  char piecePlayed;
+  char move;
   if (playerTurn == 0) {
-    piecePlayed = 'X';
+    move = 'X';
   } else {
-    piecePlayed = 'O';
+    move = 'O';
   }
-  for (int row = numRows - 1; row >= 0; --row) { // iterates through rows from bottom to top
-    if (board[row][colPlayed] == blankSpace) { // checks if the space is blank at the row
-      board[row][colPlayed] = piecePlayed; // changes the blank space to player's piece
+  for (int row = numRows - 1; row >= 0; --row) { // start from bottom row
+    if (board[row][colPlayed] == blankSpace) {
+      board[row][colPlayed] = move;
       *rowPlayed = row;
       break;
     }
@@ -46,9 +46,9 @@ void makeMove(char **board, const int numRows, const int numCols, const int colP
 }
 
 int changeTurn(const int playerTurn) {
-  if (playerTurn == 0) { // playerTurn starts at 0
-    return 1; // changes playerTurn to 1
-  } else { // playerTurn starts at 1
-    return 0; // changes playerTurn to 0
+  if (playerTurn == 0) {
+    return 1;
+  } else {
+    return 0;
   }
 }

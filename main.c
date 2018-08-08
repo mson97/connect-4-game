@@ -4,7 +4,7 @@
 #include "win.h"
 #include "move.h"
 
-char **getValidInput(int numArgsRead, char **argsRead);
+char **getValidArgs(int numArgsRead, char **argsRead);
 void usageAndExit();
 void playGame(char** board, const int numRows, const int numCols, const int piecesToWin, const char blankSpace);
 
@@ -13,7 +13,7 @@ int main(int argc, char *argv[]) {
   const char blankSpace = '*';
   char **board;
 
-  argv = getValidInput(argc, argv);
+  argv = getValidArgs(argc, argv);
   numRows = atoi(argv[1]);
   numCols = atoi(argv[2]);
   piecesToWin = atoi(argv[3]);
@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
 
 }
 
-char **getValidInput(int numArgsRead, char **argsRead) {
+char **getValidArgs(int numArgsRead, char **argsRead) {
   if (numArgsRead < 4) {
     printf("Not enough arguments entered\n");
     usageAndExit();
